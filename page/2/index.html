@@ -6,18 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>tags | 小小心大大梦</title>
+  <title>小小心大大梦</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="做自己喜欢的事，完成未实现的梦">
 <meta property="og:type" content="website">
-<meta property="og:title" content="tags">
-<meta property="og:url" content="http://yoursite.com/tags/index.html">
+<meta property="og:title" content="小小心大大梦">
+<meta property="og:url" content="http://yoursite.com/page/2/index.html">
 <meta property="og:site_name" content="小小心大大梦">
 <meta property="og:description" content="做自己喜欢的事，完成未实现的梦">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-09-29T15:14:04.638Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="tags">
+<meta name="twitter:title" content="小小心大大梦">
 <meta name="twitter:description" content="做自己喜欢的事，完成未实现的梦">
   
     <link rel="alternative" href="/atom.xml" title="小小心大大梦" type="application/atom+xml">
@@ -146,117 +145,74 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="page-" class="article article-type-page " itemscope itemprop="blogPost">
+            
+  
+    <article id="post-2" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 class="article-title" itemprop="name">
-      tags
+    <h1 itemprop="name">
+      <a class="article-title" href="/2013/08/11/2/">谈谈OAuth1,OAuth2异同</a>
     </h1>
   
 
         
-        <a href="/tags/index.html" class="archive-article-date">
-  	<time datetime="2019-09-29T15:14:04.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-29</time>
+        <a href="/2013/08/11/2/" class="archive-article-date">
+  	<time datetime="2013-08-11T02:55:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2013-08-11</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        
-      
+        <p>##一、写在前面<br>在收集资料时，我查询和学习了许多介绍OAuth的文章，这些文章有好有坏，但大多是从个例出发。因此我想从官方文档出发，结合在stackoverflow上的一些讨论，一并整理一下。整理的内容分为OAuth1.0a和OAuth2两部分。</p>
+<p>OAuth 1.0a：One Leg -&gt;Two Leg -&gt; Three Legged<br>OAuth 2:Two Leg -&gt;Three Legged (附：Refresh Token的方式)</p>
+<p>这两种模式都是按箭头从左往右安全性递增，其实现也会相对复杂。关于官方的这种leg（腿？）的说法，在中文翻译中比较少有文章提及。下面分别来介绍OAuth的这5种授权流程。</p>
+<p>##二、OAuth1.0a 2.1 OAuth 1.0a (One Leg)</p>
+<p>应用给服务器发送一个签名请求，附带以下参数：<br>oauth_token Empty String<br>oauth_consumer_key<br>oauth_timestamp<br>oauth_nonce<br>oauth_signature<br>oauth_signature_method<br>oauth_version Optional<br>服务验证并授予对资源的访问<br>应用程序利用请求的资源<br>2.2 OAuth 1.0a (Two Legs)</p>
+<p>应用发送一个签名请求，以获取 Request Token：<br>oauth_consumer_key<br>oauth_timestamp<br>oauth_nonce<br>oauth_signature<br>oauth_signature_method<br>oauth_version Optional<br>服务器返回Request Token：<br>oauth_token<br>oauth_token_secret<br>Additional Parameters / Arguments<br>发送签名请求，用Request Token换取Access Token<br>oauth_token Request Token<br>oauth_consumer_key<br>oauth_nonce<br>oauth_signature<br>oauth_signature_method<br>oauth_version<br>服务器返回Access Token和Token Secret<br>应用通过Access Token和Token Secret利用请求的资源<br>2.3 OAuth 1.0a (Three Legged)</p>
+<p>应用发送一个签名请求，以获取 Request Token：<br>oauth_consumer_key<br>oauth_timestamp<br>oauth_nonce<br>oauth_signature<br>oauth_signature_method<br>oauth_version Optional<br>服务器返回Request Token：<br>oauth_token<br>oauth_token_secret<br>oauth_callback_confirmed<br>… Additional Parameters / Arguments<br>发送给用户授权的URL<br>oauth_token<br>提示用户进行授权<br>用户进行授权<br>授权结束后返回应用，附带上：<br>oauth_token<br>oauth_verifier<br>发送签名请求，用Request Token换取Access Token<br>oauth_token Request Token<br>oauth_consumer_key<br>oauth_nonce<br>oauth_signature<br>oauth_signature_method<br>oauth_version<br>oauth_verifier<br>服务器返回Access Token和Token Secret<br>应用通过Access Token和Token Secret利用请求的资源</p>
+<p>##三、OAuth2</p>
+<p>** 3.1 OAuth 2 (Two Legged)**</p>
+<p>3.1.1 客户端凭据方式</p>
+<p>应用发送请求到服务器：<br>grant_type = client_credentials<br>如果没有使用Authorization（Authorization: Basic Base64(client_id:client_secret)） 的header，必须附带参数为：<br>client_id<br>client_secret<br>服务器以Access Token回应<br>access_token<br>expires_in<br>token_type<br>3.1.2 隐式授予方式</p>
+<p>应用发送请求到服务器：<br>response_type = token<br>redirect_uri This is a server-side Redirection URI hosted by the provider or yourself.<br>scope<br>state Optional<br>client_id<br>用户可根据需要授权。<br>username<br>password<br>服务器将响应包含access_token在内的redirect_uri<br>应用程序跳转至redirect_uri<br>redirect_uri将响应一段脚本或HTML片段。响应的脚本或HTML片段包含参数access_token，还有您可能需要的任何其他参数。<br>3.1.3 资源所有者密码方式</p>
+<p>应用向资源所有者请求凭证<br>username<br>password<br>应用使用凭证，向服务器发送请求<br>grant_type = password<br>username<br>password<br>url看起来会像这样：grant_type=password&amp;username=my_username&amp;password=my_password<br>如果你没有使用Authorization的header，必须附带上参数：<br>client_id<br>client_secret<br>url看起来会像是：<br>grant_type=password&amp;username=my_username&amp;password=my_password&amp;client_id=random_string&amp;client_secret=random_secret<br>服务器返回Access Toke<br>access_token<br>expires_in<br>token_type<br>** 3.2 OAuth 2 (Three Legged) **</p>
+<p>应用重定向用户到授权服务：<br>client_id<br>redirect_uri<br>response_type<br>state Optional; Unique identifier to protect against CSRF<br>scope Optional; what data your application can access.<br>url看起来会像是：<br>oauth_service/login/oauth/authorize?client_id=3MVG9lKcPoNINVB&amp;redirect_uri=<a href="http://localhost/oauth/code_callback&amp;scope=user" target="_blank" rel="noopener">http://localhost/oauth/code_callback&amp;scope=user</a><br>用户登录服务器并确认授权给应用<br>服务器重定向用户到redirect_url ，附带参数：<br>code<br>state<br>应用拿到code，并换取Access Token<br>client_id<br>client_secret<br>code<br>redirect_uri Optional;<br>grant_type = “authorization_code”<br>如果的client_id和client_secret是有效的，服务器将调用一个回调redirect_url，包含ACCESS_TOKEN<br>access_token<br>expires_in<br>refresh_token<br>应用保存ACCESS_TOKEN，在随后的请求中使用。通常这个值被存储在session或或cookie，需要时作为授权请求的参数。</p>
 
       
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
-        </div>
+
       
     </div>
     <div class="article-info article-info-index">
       
       
-      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">web</a>
+        		</li>
+      		
+		</ul>
+	</div>
 
       
 
       
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
-        </div>
-      </div>
-    </span>
-  </div>
-</div>
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2013/08/11/2/">展开全文 >></a>
+        </p>
+      
 
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/tags/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
-
-  
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -276,14 +232,162 @@
 
 
 
-  
-  
-  
 
   
-
+    <article id="post-4" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2012/12/24/4/">生产者-消费者模型的coffeescript实现</a>
+    </h1>
   
 
+        
+        <a href="/2012/12/24/4/" class="archive-article-date">
+  	<time datetime="2012-12-24T15:51:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2012-12-24</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>这两天一直在看coffeescript相关的东西，也帮一个朋友搞了个生产者-消费者模型的C语言实现。想到还没用coffeescript真正意义上写过程序，那就尝试做一下吧。</p>
+<p>其实《CoffeeScript小书》是暑假实习时就买了，一直比较向往着函数式编程却拖延了很久没行动起来。小书只有几十页，本是github上一个开源的项目，我喜欢这种轻巧的文字。语法部分看下来，再看下类与继承，只花了半天的时间，而且心情非常愉悦，然后就可以开始我菜鸟的第一次试飞了。</p>
+<p>生产者-消费者模型没什么好说的了，就是读写共享缓冲区，pv操作控制是否冲突。更多的就是冲着coffeescript来的。下面是一些凌乱但自认为有思考价值的记录，或许后续我会继续写一些coffeescript的学习笔记，再做深入的研究。</p>
+<p>##demo，可尝试点击“生产”“消费”按钮</p>
+<iframe src="/assets/demo/coffee_pc_demo/pro-con.html" width="780" height="336" scrolling="no"></iframe> ##**litten如是想：** + 我一定要学一门，至少一门函数式风格编程语言，没有太深远的想法，就觉得它就是我的菜 + 这个程序是66行的coffeescript代码，最后编译后得到了122行的js代码，说明编程效率提升显著 + 括号，方括号，花括号，还有逗号有时候会多烦人，特别是使用过ExtJs的人，而coffeescript可以没有 + 用法简洁的jquery在coffeescript里面会更简洁 + 关于coffeescript的循环，它不推荐你使用for循环，而是使用“推导”，暴露在底层的循环只有while语法 + 事件绑定时，使用=>可以免去js上下文切换this的麻烦 + coffeescript的数组迭代方法非常的酷，三言两语说不清 + javascript会是下一个JVM吗？ + 站在产品的角度，我认为coffeescript这名字太长了-_-!
+##附上源码
+
+<pre><code>N = 10
+
+class ProCon
+    data: 
+        mutex:1
+        empty:N
+        full:0
+        front:0
+        rear:0
+        buf: []
+    init:-&gt;
+        i = 0
+        while i&lt;N
+            newDom = $(&apos;&lt;div class=&quot;bufBox&quot;&gt;&lt;div class=&quot;bufCover&quot;&gt;&apos;+i+&apos;&lt;/div&gt;&apos;+i+&apos;&lt;/div&gt;&apos;)
+            $(&apos;#buf&apos;).append(newDom)
+            @data.buf.push &apos;e&apos;
+            i++
+        $(&apos;#produce&apos;).click =&gt;
+            @producer()
+        $(&apos;#consume&apos;).click =&gt;
+            @consumer()
+    p:(num)-&gt;
+        return --num
+    v:(num)-&gt;
+        return ++num
+    produceItem:-&gt;
+        $(&apos;&lt;p class=&quot;desPro&quot;&gt;生产了产品&lt;/p&gt;&apos;).insertBefore $(&quot;#des p:first&quot;)
+        return &apos;m&apos;
+    consumeItem:-&gt;
+        $(&apos;&lt;p class=&quot;desCon&quot;&gt;消费了产品&lt;/p&gt;&apos;).insertBefore $(&quot;#des p:first&quot;)
+    enterItem:(item) -&gt;
+        @data.front = (@data.front+1)%N
+        @data.buf[@data.front] = item;
+        str = &quot;存入产品#{@data.buf[@data.front]}到缓冲区#{@data.front}&quot;
+        $(&quot;&lt;p class=&apos;desPro&apos;&gt;#{str}&lt;/p&gt;&quot;).insertBefore $(&quot;#des p:first&quot;)
+        $($(&apos;.bufCover&apos;)[@data.front]).animate 
+            &quot;height&quot;:&quot;50px&quot;
+    removeItem:-&gt;
+        @data.rear = (@data.rear + 1) % N;
+        @data.buf[@data.rear] = &apos;e&apos;;
+        str = &quot;取出产品#{@data.buf[@data.rear]}从缓冲区#{@data.rear}&quot;
+        $(&quot;&lt;p class=&apos;desCon&apos;&gt;#{str}&lt;/p&gt;&quot;).insertBefore $(&quot;#des p:first&quot;)
+        $($(&apos;.bufCover&apos;)[@data.rear]).animate 
+            &quot;height&quot;:&quot;0px&quot;
+    producer:-&gt;
+        if @data.full==N
+            $(&quot;&lt;p class=&apos;desSpe&apos;&gt;缓冲区已全满&lt;/p&gt;&quot;).insertBefore $(&quot;#des p:first&quot;)
+            return
+        item = @produceItem()
+        @data.empty = @p(@data.empty)
+        @data.mutex = @p(@data.mutex)
+        @enterItem(item)
+        @data.mutex = @v(@data.mutex)
+        @data.full = @v(@data.full)
+    consumer:-&gt;
+        if @data.empty==N
+            $(&quot;&lt;p class=&apos;desSpe&apos;&gt;缓冲区已空&lt;/p&gt;&quot;).insertBefore $(&quot;#des p:first&quot;)
+            return
+        @data.full = @p(@data.full)
+        @data.mutex = @p(@data.mutex)
+        @removeItem()
+        @data.mutex = @v(@data.mutex)
+        @data.empty = @v(@data.empty)
+        @consumeItem()
+
+procon = new ProCon
+procon.init();</code></pre>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">coffeescript</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2012/12/24/4/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+  
+    <nav id="page-nav">
+      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+    </nav>
   
 
 
@@ -306,7 +410,7 @@
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: false,
+		isHome: true,
 		isPost: false,
 		isArchive: false,
 		isTag: false,

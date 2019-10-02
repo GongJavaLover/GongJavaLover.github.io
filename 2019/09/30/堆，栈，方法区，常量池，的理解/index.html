@@ -8,13 +8,11 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>堆，栈，方法区，常量池，的理解 | 小小心大大梦</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="堆，栈，方法区，常量池，的概念      1.首先看堆，栈，方法区，常量池 的位置分布图">
-<meta name="keywords" content="java基础">
+  <meta name="keywords" content="java基础">
 <meta property="og:type" content="article">
 <meta property="og:title" content="堆，栈，方法区，常量池，的理解">
 <meta property="og:url" content="http://yoursite.com/2019/09/30/堆，栈，方法区，常量池，的理解/index.html">
 <meta property="og:site_name" content="小小心大大梦">
-<meta property="og:description" content="堆，栈，方法区，常量池，的概念      1.首先看堆，栈，方法区，常量池 的位置分布图">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://img2018.cnblogs.com/blog/1460902/201902/1460902-20190213164222485-2067634141.png">
 <meta property="og:image" content="https://img2018.cnblogs.com/blog/1460902/201902/1460902-20190213164330688-1158477748.png">
@@ -42,10 +40,9 @@
 <meta property="og:image" content="http://common.cnblogs.com/images/copycode.gif">
 <meta property="og:image" content="https://images2015.cnblogs.com/blog/922762/201607/922762-20160710173557592-60719081.jpg">
 <meta property="og:image" content="https://images2015.cnblogs.com/blog/922762/201607/922762-20160710173622499-1944068837.png">
-<meta property="og:updated_time" content="2019-10-02T09:13:10.151Z">
+<meta property="og:updated_time" content="2019-10-02T10:29:48.203Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="堆，栈，方法区，常量池，的理解">
-<meta name="twitter:description" content="堆，栈，方法区，常量池，的概念      1.首先看堆，栈，方法区，常量池 的位置分布图">
 <meta name="twitter:image" content="https://img2018.cnblogs.com/blog/1460902/201902/1460902-20190213164222485-2067634141.png">
   
     <link rel="alternative" href="/atom.xml" title="小小心大大梦" type="application/atom+xml">
@@ -89,7 +86,7 @@
 			
 				<li><a href="/">主页</a></li>
 	        
-				<li><a href="/tags/随笔/">相册</a></li>
+				<li><a href="/archives">归档</a></li>
 	        
 			</ul>
 		</nav>
@@ -159,7 +156,7 @@
 				
 					<li style="width: 50%"><a href="/">主页</a></li>
 		        
-					<li style="width: 50%"><a href="/tags/随笔/">相册</a></li>
+					<li style="width: 50%"><a href="/archives">归档</a></li>
 		        
 				</ul>
 			</nav>
@@ -194,10 +191,18 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <div class="post">
+        <div id="article_content" class="article_content clearfix">
+                                        <div class="article-source-link">
+                </div>
+                        <link rel="stylesheet" href="https://csdnimg.cn/release/phoenix/template/css/ck_htmledit_views-3019150162.css">
+                                        <div id="content_views" class="markdown_views prism-tomorrow-night">
+                    <!-- flowchart 箭头图标 勿删 -->
+                    <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+                        <path stroke-linecap="round" d="M5,0 0,2.5 5,5z" id="raphael-marker-block" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"/>
+                    </svg>
+                                            <div class="post">
             <h1 class="postTitle">
-
-<p><a id="cb_post_title_url" class="postTitle2">堆，栈，方法区，常量池，的概念</a></p>
+</h1></div><p><a id="cb_post_title_url" class="postTitle2" href rel="nofollow" data-token="eb1c4e8ab22a529020a572e66c83f998">堆，栈，方法区，常量池，的概念</a></p>
 <div id="cnblogs_post_body" class="blogpost-body ">
     <p>1.首先看堆，栈，方法区，常量池 的位置分布图</p>
 <p><img src="https://img2018.cnblogs.com/blog/1460902/201902/1460902-20190213164222485-2067634141.png" alt width="814" height="380"></p>
@@ -218,43 +223,43 @@
 <p>&nbsp;</p>
 <p><img src="http://p3.pstatp.com/large/d000006e37beac1b6c4" alt="JAVA堆里放啥，栈里放啥，一看就懂"></p>
 <p>五,对于string的特殊解释</p>
-<div><strong>(1)对于字符串</strong>：其对象的引用都是存储在栈中的，如果<span style="background-color: #ff6600;">是编译期已经创建好(直接用双引号定义的)的就存储在常量池中</span>，如果是运行期（new出来的）才能确定的就存储在堆中。对于equals相等的字符串，在常量池中永远只有一份，在堆中有多份。</div>
+<div><strong>(1)对于字符串</strong>：其对象的引用都是存储在栈中的，如果<span>是编译期已经创建好(直接用双引号定义的)的就存储在常量池中</span>，如果是运行期（new出来的）才能确定的就存储在堆中。对于equals相等的字符串，在常量池中永远只有一份，在堆中有多份。</div>
 <div>例如：</div>
 <div>
-<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码" target="_blank" rel="noopener"><img src="//common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></span></div>
+<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a title="复制代码"><img src="//common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></span></div>
 <div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a title="复制代码"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></span></div>
-<pre>1 String s1 = "china"; 
+<pre class="prettyprint">1 String s1 = "china"; 
 2 String s2 = "china";
 3 String s3 = "china";
 4 String ss1 = new String("china");
 5 String ss2 = new String("china");
 6 String ss3 = new String("china");   </pre>
 <div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a title="复制代码"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></span></div>
-<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码" target="_blank" rel="noopener"><img src="//common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></span></div></div>
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a title="复制代码"><img src="//common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></span></div></div>
 <p><img src="https://images2015.cnblogs.com/blog/922762/201607/922762-20160710174112202-1015226419.png" alt></p>
 <div>对于通过new产生一个字符串（假设为”china”）时，会先去常量池中查找是否已经有了”china”对象，如果没有则在常量池中创建一个此字符串对象，然后堆中再创建一个常量池中此”china”对象的拷贝对象。</div>
 <div>这也就是有道面试题：String s = new String(“xyz”);产生几个对象？答：一个或两个，如果常量池中原来没有”xyz”,就是两个。</div>
 <div>
 <div><strong>(2)对于基础类型的变量和常量</strong>：变量和引用存储在栈中，常量存储在常量池中。</div>
 <div>例如：
-<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码" target="_blank" rel="noopener"><img src="//common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></span></div>
+<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a title="复制代码"><img src="//common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></span></div>
 <div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a title="复制代码"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></span></div>
-<pre>1 int i1 = 9;
+<pre class="prettyprint">1 int i1 = 9;
 2 int i2 = 9;
 3 int i3 = 9; 
 4 public static final int INT1 = 9;
 5 public static final int INT2 = 9;
 6 public static final int INT3 = 9;</pre>
 <div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a title="复制代码"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></span></div>
-<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码" target="_blank" rel="noopener"><img src="//common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></span></div></div>
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a title="复制代码"><img src="//common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></span></div></div>
 <p><img src="https://images2015.cnblogs.com/blog/922762/201607/922762-20160710174141764-2118970512.png" alt></p>
 <div>对于成员变量和局部变量：成员变量就是方法外部，类的内部定义的变量；局部变量就是方法或语句块内部定义的变量。局部变量必须初始化。</div>
-<div>形式参数是局部变量，<span style="background-color: #ff6600;">局部变量的数据存在于栈内存中。栈内存中的局部变量随着方法的消失而消失。</span></div>
-<div><span style="background-color: #ff6600;">成员变量存储在堆中的对象里面，由垃圾回收器负责回收。</span></div>
+<div>形式参数是局部变量，<span>局部变量的数据存在于栈内存中。栈内存中的局部变量随着方法的消失而消失。</span></div>
+<div><span>成员变量存储在堆中的对象里面，由垃圾回收器负责回收。</span></div>
 <div>下面给出一个实例：
-<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码" target="_blank" rel="noopener"><img src="//common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></span></div>
+<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a title="复制代码"><img src="//common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></span></div>
 <div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a title="复制代码"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></span></div>
-<pre> 1 class BirthDate {
+<pre class="prettyprint"> 1 class BirthDate {
  2     private int day;
  3     private int month;
  4     private int year;    
@@ -279,7 +284,7 @@
 23     }
 24 }</pre>
 <div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a title="复制代码"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></span></div>
-<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码" target="_blank" rel="noopener"><img src="//common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></span></div></div>
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a title="复制代码"><img src="//common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></span></div></div>
 <p><img src="https://images2015.cnblogs.com/blog/922762/201607/922762-20160710174216217-1171188913.png" alt></p>
 <div>对于以上这段代码，date为局部变量，i,d,m,y都是形参为局部变量，day，month，year为成员变量。下面分析一下代码执行时候的变化：</div>
 <div>1. main方法开始执行：int date = 9;</div>
@@ -292,15 +297,15 @@
 <div>d1为对象引用，存在栈中，对象(new BirthDate())存在堆中，其中d，m，y为局部变量存储在栈中，且它们的类型为基础类型，因此它们的数据也存储在栈中。day,month,year为成员变量，它们存储在堆中(new BirthDate()里面)。当BirthDate构造方法执行完之后，d,m,y将从栈中消失。</div>
 <div>5.main方法执行完之后，date变量，test，d1引用将从栈中消失，new Test(),new BirthDate()将等待垃圾回收。</div>
 <div>&nbsp;</div>
-<div>六，<a id="cb_post_title_url" href="https://www.cnblogs.com/Eason-S/p/5658212.html" target="_blank" rel="noopener">常量池小结</a></div>
+<div>六，<a id="cb_post_title_url" href="https://www.cnblogs.com/Eason-S/p/5658212.html" rel="noopener" data-token="d49ff593330ff4e837a41c5810f4bb9c" target="_blank">常量池小结</a></div>
 <div>
 <div>Java中的常量池，实际上分为两种形态：静态常量池和运行时常量池。 &nbsp; &nbsp;</div>
 <div>所谓静态常量池，即*.class文件中的常量池，class文件中的常量池不仅仅包含字符串(数字)字面量，还包含类、方法的信息，占用class文件绝大部分空间。&nbsp;</div>
 <div>而运行时常量池，则是jvm虚拟机在完成类装载操作后，将class文件中的常量池载入到内存中，并保存在方法区中，我们常说的常量池，就是指方法区中的运行时常量池。</div>
 <div>以下面的例子来讲解常量池：
-<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码" target="_blank" rel="noopener"><img src="//common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></span></div>
+<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a title="复制代码"><img src="//common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></span></div>
 <div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a title="复制代码"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></span></div>
-<pre> 1 String s1 = "Hello";
+<pre class="prettyprint"> 1 String s1 = "Hello";
  2 String s2 = "Hello";
  3 String s3 = "Hel" + "lo";
  4 String s4 = "Hel" + new String("lo");
@@ -317,9 +322,9 @@
 15 System.out.println(s4 == s5);  // false
 16 System.out.println(s1 == s6);  // true</pre>
 <div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a title="复制代码"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></span></div>
-<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码" target="_blank" rel="noopener"><img src="//common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></span></div></div>
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a title="复制代码"><img src="//common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></span></div></div>
 <div>首先说明一点，在java 中，直接使用==操作符，比较的是两个字符串的引用地址，并不是比较内容，比较内容请用String.equals()。</div>
-<div>　　s1 == s2这个非常好理解，s1、s2在赋值时，均使用的字符串字面量，说白话点，就是直接把字符串写死，<span style="background-color: #ff6600;">在编译期间</span>，这种字面量会直接放入class文件的常量池中，从而实现复用，载入运行时常量池后，s1、s2指向的是同一个内存地址，所以相等。</div>
+<div>　　s1 == s2这个非常好理解，s1、s2在赋值时，均使用的字符串字面量，说白话点，就是直接把字符串写死，<span>在编译期间</span>，这种字面量会直接放入class文件的常量池中，从而实现复用，载入运行时常量池后，s1、s2指向的是同一个内存地址，所以相等。</div>
 <div>　　s1 == s3这个地方有个坑，s3虽然是动态拼接出来的字符串，但是所有参与拼接的部分都是已知的字面量，在编译期间，这种拼接会被优化，编译器直接帮你拼好，因此String s3 = "Hel" + "lo";在class文件中被优化成String s3 = "Hello";，所以s1 == s3成立。&nbsp;</div>
 <div>　　s1 == s4当然不相等，s4虽然也是拼接出来的，但new String("lo")这部分不是已知字面量，是一个不可预料的部分，编译器不会优化，必须等到运行时才可以确定结果，结合字符串不变定理，鬼知道s4被分配到哪去了，所以地址肯定不同。配上一张简图理清思路：</div>
 <div><img src="https://images2015.cnblogs.com/blog/922762/201607/922762-20160710173557592-60719081.jpg" alt></div>
@@ -346,10 +351,9 @@
 <div id="MySignature"></div>
 <div class="clear"></div>
 
-
-
-
-</h1></div>
+<pre><code>                    &lt;/div&gt;
+&lt;link href=&quot;https://csdnimg.cn/release/phoenix/mdeditor/markdown_views-095d4a0b23.css&quot; rel=&quot;stylesheet&quot;&gt;
+    &lt;/div&gt;</code></pre></div></div>
       
 
       
@@ -585,19 +589,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">总结</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Git</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">IDEA</a>
+                <a href="javascript:void(0)" class="js-tag color3">总结</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">数据库</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">IDEA</a>
               </li>
              
               <li class="article-tag-list-item">

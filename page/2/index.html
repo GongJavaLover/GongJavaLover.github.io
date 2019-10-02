@@ -147,41 +147,39 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-2" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-关于Git的代码总结，以及附上详细的Git学习教程链接" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2013/08/11/2/">谈谈OAuth1,OAuth2异同</a>
+      <a class="article-title" href="/2019/03/21/关于Git的代码总结，以及附上详细的Git学习教程链接/">==和equals的总结，防止遗忘</a>
     </h1>
   
 
         
-        <a href="/2013/08/11/2/" class="archive-article-date">
-  	<time datetime="2013-08-11T02:55:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2013-08-11</time>
+        <a href="/2019/03/21/关于Git的代码总结，以及附上详细的Git学习教程链接/" class="archive-article-date">
+  	<time datetime="2019-03-21T13:47:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-21</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>##一、写在前面<br>在收集资料时，我查询和学习了许多介绍OAuth的文章，这些文章有好有坏，但大多是从个例出发。因此我想从官方文档出发，结合在stackoverflow上的一些讨论，一并整理一下。整理的内容分为OAuth1.0a和OAuth2两部分。</p>
-<p>OAuth 1.0a：One Leg -&gt;Two Leg -&gt; Three Legged<br>OAuth 2:Two Leg -&gt;Three Legged (附：Refresh Token的方式)</p>
-<p>这两种模式都是按箭头从左往右安全性递增，其实现也会相对复杂。关于官方的这种leg（腿？）的说法，在中文翻译中比较少有文章提及。下面分别来介绍OAuth的这5种授权流程。</p>
-<p>##二、OAuth1.0a 2.1 OAuth 1.0a (One Leg)</p>
-<p>应用给服务器发送一个签名请求，附带以下参数：<br>oauth_token Empty String<br>oauth_consumer_key<br>oauth_timestamp<br>oauth_nonce<br>oauth_signature<br>oauth_signature_method<br>oauth_version Optional<br>服务验证并授予对资源的访问<br>应用程序利用请求的资源<br>2.2 OAuth 1.0a (Two Legs)</p>
-<p>应用发送一个签名请求，以获取 Request Token：<br>oauth_consumer_key<br>oauth_timestamp<br>oauth_nonce<br>oauth_signature<br>oauth_signature_method<br>oauth_version Optional<br>服务器返回Request Token：<br>oauth_token<br>oauth_token_secret<br>Additional Parameters / Arguments<br>发送签名请求，用Request Token换取Access Token<br>oauth_token Request Token<br>oauth_consumer_key<br>oauth_nonce<br>oauth_signature<br>oauth_signature_method<br>oauth_version<br>服务器返回Access Token和Token Secret<br>应用通过Access Token和Token Secret利用请求的资源<br>2.3 OAuth 1.0a (Three Legged)</p>
-<p>应用发送一个签名请求，以获取 Request Token：<br>oauth_consumer_key<br>oauth_timestamp<br>oauth_nonce<br>oauth_signature<br>oauth_signature_method<br>oauth_version Optional<br>服务器返回Request Token：<br>oauth_token<br>oauth_token_secret<br>oauth_callback_confirmed<br>… Additional Parameters / Arguments<br>发送给用户授权的URL<br>oauth_token<br>提示用户进行授权<br>用户进行授权<br>授权结束后返回应用，附带上：<br>oauth_token<br>oauth_verifier<br>发送签名请求，用Request Token换取Access Token<br>oauth_token Request Token<br>oauth_consumer_key<br>oauth_nonce<br>oauth_signature<br>oauth_signature_method<br>oauth_version<br>oauth_verifier<br>服务器返回Access Token和Token Secret<br>应用通过Access Token和Token Secret利用请求的资源</p>
-<p>##三、OAuth2</p>
-<p>** 3.1 OAuth 2 (Two Legged)**</p>
-<p>3.1.1 客户端凭据方式</p>
-<p>应用发送请求到服务器：<br>grant_type = client_credentials<br>如果没有使用Authorization（Authorization: Basic Base64(client_id:client_secret)） 的header，必须附带参数为：<br>client_id<br>client_secret<br>服务器以Access Token回应<br>access_token<br>expires_in<br>token_type<br>3.1.2 隐式授予方式</p>
-<p>应用发送请求到服务器：<br>response_type = token<br>redirect_uri This is a server-side Redirection URI hosted by the provider or yourself.<br>scope<br>state Optional<br>client_id<br>用户可根据需要授权。<br>username<br>password<br>服务器将响应包含access_token在内的redirect_uri<br>应用程序跳转至redirect_uri<br>redirect_uri将响应一段脚本或HTML片段。响应的脚本或HTML片段包含参数access_token，还有您可能需要的任何其他参数。<br>3.1.3 资源所有者密码方式</p>
-<p>应用向资源所有者请求凭证<br>username<br>password<br>应用使用凭证，向服务器发送请求<br>grant_type = password<br>username<br>password<br>url看起来会像这样：grant_type=password&amp;username=my_username&amp;password=my_password<br>如果你没有使用Authorization的header，必须附带上参数：<br>client_id<br>client_secret<br>url看起来会像是：<br>grant_type=password&amp;username=my_username&amp;password=my_password&amp;client_id=random_string&amp;client_secret=random_secret<br>服务器返回Access Toke<br>access_token<br>expires_in<br>token_type<br>** 3.2 OAuth 2 (Three Legged) **</p>
-<p>应用重定向用户到授权服务：<br>client_id<br>redirect_uri<br>response_type<br>state Optional; Unique identifier to protect against CSRF<br>scope Optional; what data your application can access.<br>url看起来会像是：<br>oauth_service/login/oauth/authorize?client_id=3MVG9lKcPoNINVB&amp;redirect_uri=<a href="http://localhost/oauth/code_callback&amp;scope=user" target="_blank" rel="noopener">http://localhost/oauth/code_callback&amp;scope=user</a><br>用户登录服务器并确认授权给应用<br>服务器重定向用户到redirect_url ，附带参数：<br>code<br>state<br>应用拿到code，并换取Access Token<br>client_id<br>client_secret<br>code<br>redirect_uri Optional;<br>grant_type = “authorization_code”<br>如果的client_id和client_secret是有效的，服务器将调用一个回调redirect_url，包含ACCESS_TOKEN<br>access_token<br>expires_in<br>refresh_token<br>应用保存ACCESS_TOKEN，在随后的请求中使用。通常这个值被存储在session或或cookie，需要时作为授权请求的参数。</p>
+        <div class="htmledit_views" id="content_views">
+                                            <p><strong>创建版本库：</strong></p>
 
+<p>&lt;file&gt; 代表文件</p>
+
+<p>git add&nbsp; &lt;file&gt;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;添加到暂存区</p>
+
+<p>git commit -m "简短描述"&nbsp; &nbsp; &nbsp; &nbsp;暂存区文件提交到仓库</p>
+
+<p>cat &lt;file&gt;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;查看文件内容</p>
+        
+          <a class="article-more-a" href="/2019/03/21/关于Git的代码总结，以及附上详细的Git学习教程链接/#more">more >></a>
+        
       
 
       
@@ -194,7 +192,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">web</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Git</a>
         		</li>
       		
 		</ul>
@@ -204,7 +202,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2013/08/11/2/">展开全文 >></a>
+          <a class="article-more-a" href="/2019/03/21/关于Git的代码总结，以及附上详细的Git学习教程链接/">展开全文 >></a>
         </p>
       
 
@@ -234,100 +232,37 @@
 
 
   
-    <article id="post-4" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-关于自我的一篇总结文章，也是第一篇学写博客的文章" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2012/12/24/4/">生产者-消费者模型的coffeescript实现</a>
+      <a class="article-title" href="/2019/03/13/关于自我的一篇总结文章，也是第一篇学写博客的文章/">关于自我的一篇总结文章</a>
     </h1>
   
 
         
-        <a href="/2012/12/24/4/" class="archive-article-date">
-  	<time datetime="2012-12-24T15:51:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2012-12-24</time>
+        <a href="/2019/03/13/关于自我的一篇总结文章，也是第一篇学写博客的文章/" class="archive-article-date">
+  	<time datetime="2019-03-13T11:56:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-13</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>这两天一直在看coffeescript相关的东西，也帮一个朋友搞了个生产者-消费者模型的C语言实现。想到还没用coffeescript真正意义上写过程序，那就尝试做一下吧。</p>
-<p>其实《CoffeeScript小书》是暑假实习时就买了，一直比较向往着函数式编程却拖延了很久没行动起来。小书只有几十页，本是github上一个开源的项目，我喜欢这种轻巧的文字。语法部分看下来，再看下类与继承，只花了半天的时间，而且心情非常愉悦，然后就可以开始我菜鸟的第一次试飞了。</p>
-<p>生产者-消费者模型没什么好说的了，就是读写共享缓冲区，pv操作控制是否冲突。更多的就是冲着coffeescript来的。下面是一些凌乱但自认为有思考价值的记录，或许后续我会继续写一些coffeescript的学习笔记，再做深入的研究。</p>
-<p>##demo，可尝试点击“生产”“消费”按钮</p>
-<iframe src="/assets/demo/coffee_pc_demo/pro-con.html" width="780" height="336" scrolling="no"></iframe> ##**litten如是想：** + 我一定要学一门，至少一门函数式风格编程语言，没有太深远的想法，就觉得它就是我的菜 + 这个程序是66行的coffeescript代码，最后编译后得到了122行的js代码，说明编程效率提升显著 + 括号，方括号，花括号，还有逗号有时候会多烦人，特别是使用过ExtJs的人，而coffeescript可以没有 + 用法简洁的jquery在coffeescript里面会更简洁 + 关于coffeescript的循环，它不推荐你使用for循环，而是使用“推导”，暴露在底层的循环只有while语法 + 事件绑定时，使用=>可以免去js上下文切换this的麻烦 + coffeescript的数组迭代方法非常的酷，三言两语说不清 + javascript会是下一个JVM吗？ + 站在产品的角度，我认为coffeescript这名字太长了-_-!
-##附上源码
+        <div class="blog-content-box">
+    <div class="article-header-box">
+        <div class="article-header">
+<p>对于现在的我，一名对编程充满热爱的普通本科大学生，专业为软件工程。现在已经大三了，兴许有些害怕了，可能是因为自己的技能不是那么的好吧。</p>
 
-<pre><code>N = 10
+<p><strong>大一</strong></p>
 
-class ProCon
-    data: 
-        mutex:1
-        empty:N
-        full:0
-        front:0
-        rear:0
-        buf: []
-    init:-&gt;
-        i = 0
-        while i&lt;N
-            newDom = $(&apos;&lt;div class=&quot;bufBox&quot;&gt;&lt;div class=&quot;bufCover&quot;&gt;&apos;+i+&apos;&lt;/div&gt;&apos;+i+&apos;&lt;/div&gt;&apos;)
-            $(&apos;#buf&apos;).append(newDom)
-            @data.buf.push &apos;e&apos;
-            i++
-        $(&apos;#produce&apos;).click =&gt;
-            @producer()
-        $(&apos;#consume&apos;).click =&gt;
-            @consumer()
-    p:(num)-&gt;
-        return --num
-    v:(num)-&gt;
-        return ++num
-    produceItem:-&gt;
-        $(&apos;&lt;p class=&quot;desPro&quot;&gt;生产了产品&lt;/p&gt;&apos;).insertBefore $(&quot;#des p:first&quot;)
-        return &apos;m&apos;
-    consumeItem:-&gt;
-        $(&apos;&lt;p class=&quot;desCon&quot;&gt;消费了产品&lt;/p&gt;&apos;).insertBefore $(&quot;#des p:first&quot;)
-    enterItem:(item) -&gt;
-        @data.front = (@data.front+1)%N
-        @data.buf[@data.front] = item;
-        str = &quot;存入产品#{@data.buf[@data.front]}到缓冲区#{@data.front}&quot;
-        $(&quot;&lt;p class=&apos;desPro&apos;&gt;#{str}&lt;/p&gt;&quot;).insertBefore $(&quot;#des p:first&quot;)
-        $($(&apos;.bufCover&apos;)[@data.front]).animate 
-            &quot;height&quot;:&quot;50px&quot;
-    removeItem:-&gt;
-        @data.rear = (@data.rear + 1) % N;
-        @data.buf[@data.rear] = &apos;e&apos;;
-        str = &quot;取出产品#{@data.buf[@data.rear]}从缓冲区#{@data.rear}&quot;
-        $(&quot;&lt;p class=&apos;desCon&apos;&gt;#{str}&lt;/p&gt;&quot;).insertBefore $(&quot;#des p:first&quot;)
-        $($(&apos;.bufCover&apos;)[@data.rear]).animate 
-            &quot;height&quot;:&quot;0px&quot;
-    producer:-&gt;
-        if @data.full==N
-            $(&quot;&lt;p class=&apos;desSpe&apos;&gt;缓冲区已全满&lt;/p&gt;&quot;).insertBefore $(&quot;#des p:first&quot;)
-            return
-        item = @produceItem()
-        @data.empty = @p(@data.empty)
-        @data.mutex = @p(@data.mutex)
-        @enterItem(item)
-        @data.mutex = @v(@data.mutex)
-        @data.full = @v(@data.full)
-    consumer:-&gt;
-        if @data.empty==N
-            $(&quot;&lt;p class=&apos;desSpe&apos;&gt;缓冲区已空&lt;/p&gt;&quot;).insertBefore $(&quot;#des p:first&quot;)
-            return
-        @data.full = @p(@data.full)
-        @data.mutex = @p(@data.mutex)
-        @removeItem()
-        @data.mutex = @v(@data.mutex)
-        @data.empty = @v(@data.empty)
-        @consumeItem()
-
-procon = new ProCon
-procon.init();</code></pre>
+<p>从进大学校门以来满怀期待以及对编程技术的渴望，但是来到大学里一直很被动，做什么事都是跟着老师的步伐，自己还在想，上课的时候就认真的听课，晚上有时间就自己学习下关于编程的技术，但是事实根本不是这样，当上完课回到宿舍就开始打游戏，而且一打就是打到熄灯，在课上觉得没意思的时候就掏出手机查怎么自学JAVA，学习JAVA需要把什么基础课程学好等等各种关于学习JAVA的问题。最后一晃大一也就结束了，回顾一下感觉自己除了学会了课本上的一些基础知识什么也没学到了。</p>
+        
+          <a class="article-more-a" href="/2019/03/13/关于自我的一篇总结文章，也是第一篇学写博客的文章/#more">more >></a>
+        
       
 
       
@@ -340,11 +275,7 @@ procon.init();</code></pre>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">coffeescript</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">总结</a>
         		</li>
       		
 		</ul>
@@ -354,7 +285,7 @@ procon.init();</code></pre>
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2012/12/24/4/">展开全文 >></a>
+          <a class="article-more-a" href="/2019/03/13/关于自我的一篇总结文章，也是第一篇学写博客的文章/">展开全文 >></a>
         </p>
       
 
@@ -419,7 +350,7 @@ procon.init();</code></pre>
 		toc_hide_index: true,
 		root: "/",
 		innerArchive: true,
-		showTags: false
+		showTags: true
 	}
 </script>
 
@@ -477,31 +408,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">杂谈</a>
+                <a href="javascript:void(0)" class="js-tag color2">String</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">笔记</a>
+                <a href="javascript:void(0)" class="js-tag color3">基础</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">js</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">coffeescript</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">web</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">旧事</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">旅行</a>
+                <a href="javascript:void(0)" class="js-tag color4">Git</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -509,7 +424,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">前端</a>
+                <a href="javascript:void(0)" class="js-tag color5">IDEA</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">java基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">算法</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">排序</a>
               </li>
             
             <div class="clearfix"></div>
@@ -560,7 +491,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
     
     	<section class="tools-section tools-section-me" q-show="aboutme">
   	  	
-  	  		<div class="aboutme-wrap" id="js-aboutme">很惭愧&lt;br&gt;&lt;br&gt;只做了一点微小的工作&lt;br&gt;谢谢大家</div>
+  	  		<div class="aboutme-wrap" id="js-aboutme">每天学一点知识，每天复习一点基础，慢慢积累，加油!</div>
   	  	
     	</section>
     

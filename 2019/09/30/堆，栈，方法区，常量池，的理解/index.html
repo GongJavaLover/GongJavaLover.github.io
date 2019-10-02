@@ -6,18 +6,47 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2019 | 小小心大大梦</title>
+  <title>堆，栈，方法区，常量池，的理解 | 小小心大大梦</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="做自己喜欢的事，完成未实现的梦">
-<meta property="og:type" content="website">
-<meta property="og:title" content="小小心大大梦">
-<meta property="og:url" content="http://yoursite.com/archives/2019/index.html">
+  <meta name="description" content="堆，栈，方法区，常量池，的概念      1.首先看堆，栈，方法区，常量池 的位置分布图  2、内存区域类型 1.寄存器：最快的存储区, 由编译器根据需求进行分配,我们在程序中无法控制； 2. 堆：存放所有new出来的对象； 3. 栈：存放基本类型的变量数据和对象的引用，但对象本身不存放在栈中，而是存放在堆（new 出来的对象）或者常量池中(对象可能在常量池里)（字符">
+<meta name="keywords" content="java基础">
+<meta property="og:type" content="article">
+<meta property="og:title" content="堆，栈，方法区，常量池，的理解">
+<meta property="og:url" content="http://yoursite.com/2019/09/30/堆，栈，方法区，常量池，的理解/index.html">
 <meta property="og:site_name" content="小小心大大梦">
-<meta property="og:description" content="做自己喜欢的事，完成未实现的梦">
+<meta property="og:description" content="堆，栈，方法区，常量池，的概念      1.首先看堆，栈，方法区，常量池 的位置分布图  2、内存区域类型 1.寄存器：最快的存储区, 由编译器根据需求进行分配,我们在程序中无法控制； 2. 堆：存放所有new出来的对象； 3. 栈：存放基本类型的变量数据和对象的引用，但对象本身不存放在栈中，而是存放在堆（new 出来的对象）或者常量池中(对象可能在常量池里)（字符">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://img2018.cnblogs.com/blog/1460902/201902/1460902-20190213164222485-2067634141.png">
+<meta property="og:image" content="https://img2018.cnblogs.com/blog/1460902/201902/1460902-20190213164330688-1158477748.png">
+<meta property="og:image" content="http://p3.pstatp.com/large/d0500013cc513c13cdb">
+<meta property="og:image" content="https://img2018.cnblogs.com/blog/1460902/201902/1460902-20190213164431314-56030218.png">
+<meta property="og:image" content="http://p3.pstatp.com/large/d000006e37beac1b6c4">
+<meta property="og:image" content="http://common.cnblogs.com/images/copycode.gif">
+<meta property="og:image" content="https://common.cnblogs.com/images/copycode.gif">
+<meta property="og:image" content="https://common.cnblogs.com/images/copycode.gif">
+<meta property="og:image" content="http://common.cnblogs.com/images/copycode.gif">
+<meta property="og:image" content="https://images2015.cnblogs.com/blog/922762/201607/922762-20160710174112202-1015226419.png">
+<meta property="og:image" content="http://common.cnblogs.com/images/copycode.gif">
+<meta property="og:image" content="https://common.cnblogs.com/images/copycode.gif">
+<meta property="og:image" content="https://common.cnblogs.com/images/copycode.gif">
+<meta property="og:image" content="http://common.cnblogs.com/images/copycode.gif">
+<meta property="og:image" content="https://images2015.cnblogs.com/blog/922762/201607/922762-20160710174141764-2118970512.png">
+<meta property="og:image" content="http://common.cnblogs.com/images/copycode.gif">
+<meta property="og:image" content="https://common.cnblogs.com/images/copycode.gif">
+<meta property="og:image" content="https://common.cnblogs.com/images/copycode.gif">
+<meta property="og:image" content="http://common.cnblogs.com/images/copycode.gif">
+<meta property="og:image" content="https://images2015.cnblogs.com/blog/922762/201607/922762-20160710174216217-1171188913.png">
+<meta property="og:image" content="http://common.cnblogs.com/images/copycode.gif">
+<meta property="og:image" content="https://common.cnblogs.com/images/copycode.gif">
+<meta property="og:image" content="https://common.cnblogs.com/images/copycode.gif">
+<meta property="og:image" content="http://common.cnblogs.com/images/copycode.gif">
+<meta property="og:image" content="https://images2015.cnblogs.com/blog/922762/201607/922762-20160710173557592-60719081.jpg">
+<meta property="og:image" content="https://images2015.cnblogs.com/blog/922762/201607/922762-20160710173622499-1944068837.png">
+<meta property="og:updated_time" content="2019-10-02T02:56:22.443Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="小小心大大梦">
-<meta name="twitter:description" content="做自己喜欢的事，完成未实现的梦">
+<meta name="twitter:title" content="堆，栈，方法区，常量池，的理解">
+<meta name="twitter:description" content="堆，栈，方法区，常量池，的概念      1.首先看堆，栈，方法区，常量池 的位置分布图  2、内存区域类型 1.寄存器：最快的存储区, 由编译器根据需求进行分配,我们在程序中无法控制； 2. 堆：存放所有new出来的对象； 3. 栈：存放基本类型的变量数据和对象的引用，但对象本身不存放在栈中，而是存放在堆（new 出来的对象）或者常量池中(对象可能在常量池里)（字符">
+<meta name="twitter:image" content="https://img2018.cnblogs.com/blog/1460902/201902/1460902-20190213164222485-2067634141.png">
   
     <link rel="alternative" href="/atom.xml" title="小小心大大梦" type="application/atom+xml">
   
@@ -145,36 +174,210 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-堆，栈，方法区，常量池，的理解" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/09/30/堆，栈，方法区，常量池，的理解/" class="archive-article-date">
-  	<time datetime="2019-09-30T07:42:11.431Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-30</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/09/30/堆，栈，方法区，常量池，的理解/">堆，栈，方法区，常量池，的理解</a>
+    <h1 class="article-title" itemprop="name">
+      堆，栈，方法区，常量池，的理解
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2019/09/30/堆，栈，方法区，常量池，的理解/" class="archive-article-date">
+  	<time datetime="2019-09-30T07:42:11.431Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-30</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <div class="post">
+            <h1 class="postTitle">
+
+<p><a id="cb_post_title_url" class="postTitle2" href="https://www.cnblogs.com/xiaowangbangzhu/p/10366200.html" target="_blank" rel="noopener">堆，栈，方法区，常量池，的概念</a></p>
+<div id="cnblogs_post_body" class="blogpost-body ">
+    <p>1.首先看堆，栈，方法区，常量池 的位置分布图</p>
+<p><img src="https://img2018.cnblogs.com/blog/1460902/201902/1460902-20190213164222485-2067634141.png" alt width="814" height="380"></p>
+<p>2、内存区域类型</p>
+<p>1.寄存器：最快的存储区, 由编译器根据需求进行分配,我们在程序中无法控制；</p>
+<p>2. 堆：存放所有new出来的对象；</p>
+<p>3. 栈：存放基本类型的变量数据和对象的引用，但对象本身不存放在栈中，而是存放在堆（new 出来的对象）或者常量池中(对象可能在常量池里)（字符串常量对象存放在常量池中。）；</p>
+<a id="more"></a>
+<p>4. 静态域：存放静态成员（static定义的）；</p>
+<p>5. 常量池：存放字符串常量和基本类型常量（public static final）。有时，在嵌入式系统中，常量本身会和其他部分分割离开(由于版权等其他原因)，所以在这种情况下，可以选择将其放在ROM中 ；</p>
+<p>6. 非RAM存储：硬盘等永久存储空间</p>
+<p>三、栈中放的东西，图示：</p>
+<p><img src="https://img2018.cnblogs.com/blog/1460902/201902/1460902-20190213164330688-1158477748.png" alt></p>
+<p><img src="http://p3.pstatp.com/large/d0500013cc513c13cdb" alt="JAVA堆里放啥，栈里放啥，一看就懂"></p>
+<p>三、堆存放示意图：</p>
+<p>对于String类的对象特别说明一下：</p>
+<p><img src="https://img2018.cnblogs.com/blog/1460902/201902/1460902-20190213164431314-56030218.png" alt></p>
+<p>&nbsp;</p>
+<p><img src="http://p3.pstatp.com/large/d000006e37beac1b6c4" alt="JAVA堆里放啥，栈里放啥，一看就懂"></p>
+<p>五,对于string的特殊解释</p>
+<div><strong>(1)对于字符串</strong>：其对象的引用都是存储在栈中的，如果<span style="background-color: #ff6600;">是编译期已经创建好(直接用双引号定义的)的就存储在常量池中</span>，如果是运行期（new出来的）才能确定的就存储在堆中。对于equals相等的字符串，在常量池中永远只有一份，在堆中有多份。</div>
+<div>例如：</div>
+<div>
+<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码" target="_blank" rel="noopener"><img src="//common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></span></div>
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a title="复制代码"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></span></div>
+<pre>1 String s1 = "china"; 
+2 String s2 = "china";
+3 String s3 = "china";
+4 String ss1 = new String("china");
+5 String ss2 = new String("china");
+6 String ss3 = new String("china");   </pre>
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a title="复制代码"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></span></div>
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码" target="_blank" rel="noopener"><img src="//common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></span></div></div>
+<p><img src="https://images2015.cnblogs.com/blog/922762/201607/922762-20160710174112202-1015226419.png" alt></p>
+<div>对于通过new产生一个字符串（假设为”china”）时，会先去常量池中查找是否已经有了”china”对象，如果没有则在常量池中创建一个此字符串对象，然后堆中再创建一个常量池中此”china”对象的拷贝对象。</div>
+<div>这也就是有道面试题：String s = new String(“xyz”);产生几个对象？答：一个或两个，如果常量池中原来没有”xyz”,就是两个。</div>
+<div>
+<div><strong>(2)对于基础类型的变量和常量</strong>：变量和引用存储在栈中，常量存储在常量池中。</div>
+<div>例如：
+<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码" target="_blank" rel="noopener"><img src="//common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></span></div>
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a title="复制代码"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></span></div>
+<pre>1 int i1 = 9;
+2 int i2 = 9;
+3 int i3 = 9; 
+4 public static final int INT1 = 9;
+5 public static final int INT2 = 9;
+6 public static final int INT3 = 9;</pre>
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a title="复制代码"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></span></div>
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码" target="_blank" rel="noopener"><img src="//common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></span></div></div>
+<p><img src="https://images2015.cnblogs.com/blog/922762/201607/922762-20160710174141764-2118970512.png" alt></p>
+<div>对于成员变量和局部变量：成员变量就是方法外部，类的内部定义的变量；局部变量就是方法或语句块内部定义的变量。局部变量必须初始化。</div>
+<div>形式参数是局部变量，<span style="background-color: #ff6600;">局部变量的数据存在于栈内存中。栈内存中的局部变量随着方法的消失而消失。</span></div>
+<div><span style="background-color: #ff6600;">成员变量存储在堆中的对象里面，由垃圾回收器负责回收。</span></div>
+<div>下面给出一个实例：
+<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码" target="_blank" rel="noopener"><img src="//common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></span></div>
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a title="复制代码"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></span></div>
+<pre> 1 class BirthDate {
+ 2     private int day;
+ 3     private int month;
+ 4     private int year;    
+ 5     public BirthDate(int d, int m, int y) {
+ 6         day = d; 
+ 7         month = m; 
+ 8         year = y;
+ 9     }
+10     省略get,set方法………
+11 }
+12 
+13 public class Test{
+14     public static void main(String args[]){
+15         int date = 9;
+16         Test test = new Test();      
+17         test.change(date); 
+18         BirthDate d1= new BirthDate(7,7,1970);       
+19     }  
+20 
+21     public void change(int i){
+22      i = 1234;
+23     }
+24 }</pre>
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a title="复制代码"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></span></div>
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码" target="_blank" rel="noopener"><img src="//common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></span></div></div>
+<p><img src="https://images2015.cnblogs.com/blog/922762/201607/922762-20160710174216217-1171188913.png" alt></p>
+<div>对于以上这段代码，date为局部变量，i,d,m,y都是形参为局部变量，day，month，year为成员变量。下面分析一下代码执行时候的变化：</div>
+<div>1. main方法开始执行：int date = 9;</div>
+<div>date局部变量，基础类型，引用和值都存在栈中。</div>
+<div>2. Test test = new Test();</div>
+<div>test为对象引用，存在栈中，对象(new Test())存在堆中。</div>
+<div>3. test.change(date);</div>
+<div>i为局部变量，引用和值存在栈中。当方法change执行完成后，i就会从栈中消失。</div>
+<div>4. BirthDate d1= new BirthDate(7,7,1970); &nbsp;</div>
+<div>d1为对象引用，存在栈中，对象(new BirthDate())存在堆中，其中d，m，y为局部变量存储在栈中，且它们的类型为基础类型，因此它们的数据也存储在栈中。day,month,year为成员变量，它们存储在堆中(new BirthDate()里面)。当BirthDate构造方法执行完之后，d,m,y将从栈中消失。</div>
+<div>5.main方法执行完之后，date变量，test，d1引用将从栈中消失，new Test(),new BirthDate()将等待垃圾回收。</div>
+<div>&nbsp;</div>
+<div>六，<a id="cb_post_title_url" href="https://www.cnblogs.com/Eason-S/p/5658212.html" target="_blank" rel="noopener">常量池小结</a></div>
+<div>
+<div>Java中的常量池，实际上分为两种形态：静态常量池和运行时常量池。 &nbsp; &nbsp;</div>
+<div>所谓静态常量池，即*.class文件中的常量池，class文件中的常量池不仅仅包含字符串(数字)字面量，还包含类、方法的信息，占用class文件绝大部分空间。&nbsp;</div>
+<div>而运行时常量池，则是jvm虚拟机在完成类装载操作后，将class文件中的常量池载入到内存中，并保存在方法区中，我们常说的常量池，就是指方法区中的运行时常量池。</div>
+<div>以下面的例子来讲解常量池：
+<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码" target="_blank" rel="noopener"><img src="//common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></span></div>
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a title="复制代码"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></span></div>
+<pre> 1 String s1 = "Hello";
+ 2 String s2 = "Hello";
+ 3 String s3 = "Hel" + "lo";
+ 4 String s4 = "Hel" + new String("lo");
+ 5 String s5 = new String("Hello");
+ 6 String s6 = s5.intern();
+ 7 String s7 = "H";
+ 8 String s8 = "ello";
+ 9 String s9 = s7 + s8;
+10          
+11 System.out.println(s1 == s2);  // true
+12 System.out.println(s1 == s3);  // true
+13 System.out.println(s1 == s4);  // false
+14 System.out.println(s1 == s9);  // false
+15 System.out.println(s4 == s5);  // false
+16 System.out.println(s1 == s6);  // true</pre>
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a title="复制代码"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></span></div>
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码" target="_blank" rel="noopener"><img src="//common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></span></div></div>
+<div>首先说明一点，在java 中，直接使用==操作符，比较的是两个字符串的引用地址，并不是比较内容，比较内容请用String.equals()。</div>
+<div>　　s1 == s2这个非常好理解，s1、s2在赋值时，均使用的字符串字面量，说白话点，就是直接把字符串写死，<span style="background-color: #ff6600;">在编译期间</span>，这种字面量会直接放入class文件的常量池中，从而实现复用，载入运行时常量池后，s1、s2指向的是同一个内存地址，所以相等。</div>
+<div>　　s1 == s3这个地方有个坑，s3虽然是动态拼接出来的字符串，但是所有参与拼接的部分都是已知的字面量，在编译期间，这种拼接会被优化，编译器直接帮你拼好，因此String s3 = "Hel" + "lo";在class文件中被优化成String s3 = "Hello";，所以s1 == s3成立。&nbsp;</div>
+<div>　　s1 == s4当然不相等，s4虽然也是拼接出来的，但new String("lo")这部分不是已知字面量，是一个不可预料的部分，编译器不会优化，必须等到运行时才可以确定结果，结合字符串不变定理，鬼知道s4被分配到哪去了，所以地址肯定不同。配上一张简图理清思路：</div>
+<div><img src="https://images2015.cnblogs.com/blog/922762/201607/922762-20160710173557592-60719081.jpg" alt></div>
+<div>　　s1 == s9也不相等，道理差不多，虽然s7、s8在赋值的时候使用的字符串字面量，但是拼接成s9的时候，s7、s8作为两个变量，都是不可预料的，编译器毕竟是编译器，不可能当解释器用，所以不做优化，等到运行时，s7、s8拼接成的新字符串，在堆中地址不确定，不可能与方法区常量池中的s1地址相同。</div>
+<div><img src="https://images2015.cnblogs.com/blog/922762/201607/922762-20160710173622499-1944068837.png" alt></div>
+<div>
+<div>　　s4 == s5已经不用解释了，绝对不相等，二者都在堆中，但地址不同。</div>
+<div>　　s1 == s6这两个相等完全归功于intern方法，s5在堆中，内容为Hello ，intern方法会尝试将Hello字符串添加到常量池中，并返回其在常量池中的地址，因为常量池中已经有了Hello字符串，所以intern方法直接返回地址；而s1在编译期就已经指向常量池了，因此s1和s6指向同一地址，相等。</div>
+<div>&nbsp;</div>
+<div>至此，我们可以得出三个非常重要的结论：&nbsp;</div>
+<div>&nbsp; &nbsp;&nbsp;1、必须要关注编译期的行为，才能更好的理解常量池。</div>
+<div>&nbsp; &nbsp; 2、运行时常量池中的常量，基本来源于各个class文件中的常量池。</div>
+<div>&nbsp; &nbsp; 3、程序运行时，除非手动向常量池中添加常量(比如调用intern方法)，否则jvm不会自动添加常量到常量池。</div>
+<div>&nbsp;</div>
+<div>&nbsp; &nbsp; 以上所讲仅涉及字符串常量池，实际上还有整型常量池、浮点型常量池等等，但都大同小异，只不过数值类型的常量池不可以手动添加常量，程序启动时常量池中的常量就已经确定了，比如整型常量池中的常量范围：-128~127，只有这个范围的数字可以用到常量池。</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="MySignature"></div>
+<div class="clear"></div>
+
+
+
+
+</h1></div>
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -186,182 +389,105 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/09/30/堆，栈，方法区，常量池，的理解/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/07/09/彻底理解快速排序——图文解释/" class="archive-article-date">
-  	<time datetime="2019-07-09T13:42:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-09</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2019/07/09/彻底理解快速排序——图文解释/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">彻底理解快速排序——图文解释</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/07/09/彻底理解快速排序——图文解释/">彻底理解快速排序——图文解释</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">排序</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/04/19/数据库的表的设计规范，以及数据库范式的概念/" class="archive-article-date">
-  	<time datetime="2019-04-19T13:04:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-19</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/04/19/数据库的表的设计规范，以及数据库范式的概念/">数据库的表的设计规范，以及数据库范式的概念</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">数据库</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/04/10/最详细的更改C盘目录下用户文件夹名称，为了能使用IDEA，研究了一个晚上/" class="archive-article-date">
-  	<time datetime="2019-04-09T16:32:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-10</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/04/10/最详细的更改C盘目录下用户文件夹名称，为了能使用IDEA，研究了一个晚上/">最详细的更改C盘目录下用户文件夹名称，为了能使用IDEA，研究了一个晚上</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">IDEA</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/03/27/==和equals的总结，防止遗忘/" class="archive-article-date">
-  	<time datetime="2019-03-27T06:54:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-27</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/03/27/==和equals的总结，防止遗忘/">==和equals的总结，防止遗忘</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">String</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">基础</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/archives/2019/page/2/">2</a><a class="extend next" rel="next" href="/archives/2019/page/2/">Next &raquo;</a>
-    </nav>
   
 
 
@@ -385,8 +511,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: ,

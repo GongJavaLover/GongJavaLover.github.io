@@ -6,18 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2019 | 小小心大大梦</title>
+  <title>==和equals的总结，防止遗忘 | 小小心大大梦</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="做自己喜欢的事，完成未实现的梦">
-<meta property="og:type" content="website">
-<meta property="og:title" content="小小心大大梦">
-<meta property="og:url" content="http://yoursite.com/archives/2019/index.html">
+  <meta name="description" content="创建版本库：  &amp;lt;file&amp;gt; 代表文件  git add&amp;nbsp; &amp;lt;file&amp;gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;添加到暂存区  git">
+<meta name="keywords" content="Git">
+<meta property="og:type" content="article">
+<meta property="og:title" content="==和equals的总结，防止遗忘">
+<meta property="og:url" content="http://yoursite.com/2019/03/21/关于Git的代码总结，以及附上详细的Git学习教程链接/index.html">
 <meta property="og:site_name" content="小小心大大梦">
-<meta property="og:description" content="做自己喜欢的事，完成未实现的梦">
+<meta property="og:description" content="创建版本库：  &amp;lt;file&amp;gt; 代表文件  git add&amp;nbsp; &amp;lt;file&amp;gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;添加到暂存区  git">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-10-02T02:53:38.332Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="小小心大大梦">
-<meta name="twitter:description" content="做自己喜欢的事，完成未实现的梦">
+<meta name="twitter:title" content="==和equals的总结，防止遗忘">
+<meta name="twitter:description" content="创建版本库：  &amp;lt;file&amp;gt; 代表文件  git add&amp;nbsp; &amp;lt;file&amp;gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;添加到暂存区  git">
   
     <link rel="alternative" href="/atom.xml" title="小小心大大梦" type="application/atom+xml">
   
@@ -145,223 +147,258 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-关于Git的代码总结，以及附上详细的Git学习教程链接" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      ==和equals的总结，防止遗忘
+    </h1>
+  
+
+        
+        <a href="/2019/03/21/关于Git的代码总结，以及附上详细的Git学习教程链接/" class="archive-article-date">
+  	<time datetime="2019-03-21T13:47:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-21</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <div class="htmledit_views" id="content_views">
+                                            <p><strong>创建版本库：</strong></p>
+
+<p>&lt;file&gt; 代表文件</p>
+
+<p>git add&nbsp; &lt;file&gt;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;添加到暂存区</p>
+
+<p>git commit -m "简短描述"&nbsp; &nbsp; &nbsp; &nbsp;暂存区文件提交到仓库</p>
+
+<p>cat &lt;file&gt;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;查看文件内容</p>
+
+<a id="more"></a>
+
+<p><strong>版本库状态：</strong></p>
+
+<p>git status&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;查看工作区状态</p>
+
+<p>git diff&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 查看对文件做了什么修改</p>
+
+<p><strong>版本回退：</strong></p>
+
+<p>git log&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;查看版本历史记录</p>
+
+<p>git log --pretty=oneline&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 一行显示记录</p>
+
+<p>git reset --hard HEAD^&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;回退到上一个版本</p>
+
+<p>git reset --hard HEAD ~版本ID&nbsp; &nbsp; 退回到指定某个版本</p>
+
+<p>git reflog&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;产看命令历史记录</p>
+
+<p><strong>撤销修改:</strong></p>
+
+<p>git checkout --&lt;file&gt;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 撤销对工作区的修改</p>
+
+<p>git rset HEAD &lt;file&gt;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 当add到暂存区之后，想进行撤销修改</p>
+
+<p><strong>删除文件:</strong></p>
+
+<p>git rm &lt;file&gt;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;从版本库中删除某个文件，需要git commit才能真正的删除</p>
+
+<p><strong>远程仓库:</strong></p>
+
+<p>git push&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 把本地库内容推送到远程库</p>
+
+<p>git pull&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 从远程库抓取分支</p>
+
+<p>git remote add origin git@server-name:path/repo-name.git&nbsp; &nbsp; &nbsp; &nbsp; 关联远程库</p>
+
+<p>git remote -v 查看远程库信息</p>
+
+<p><strong>克隆仓库:</strong></p>
+
+<p>git clone git@github.com:name/仓库名&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</p>
+
+<p><strong>创建与合并分支:</strong></p>
+
+<p>git branch&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;显示分支</p>
+
+<p>git branch &lt;name&gt;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;创建分支</p>
+
+<p>git checkout &lt;name&gt;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;切换到某分支</p>
+
+<p>git checkout -b &lt;name&gt;&nbsp; &nbsp; &nbsp; 创建并切换到某分支</p>
+
+<p>git merge &lt;name&gt;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;合并指定分支到当前分支</p>
+
+<p>git merge --no--ff&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 禁用Fast-forward模式合并分支</p>
+
+<p>git branch -d &lt;name&gt;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;删除某分支</p>
+
+<p>git branch -D &lt;name&gt;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;强制删除没有被合并的某个分支</p>
+
+<p><strong>Bug分支：</strong></p>
+
+<p>git trash&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 当正在做项目时，突然收到经理发来叫修复某个BUG的消息，把当前项目git trash 一下。修复后再&nbsp;</p>
+
+<p>git trash pop&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;回到刚才的那个项目中&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p><strong>以上的代码总结于廖雪峰前辈的Git教程，总结的不是很全，但是大部分实用代码都写到了。还有就是前辈的Git教程写的真的非常详细，非常好。想学习Git可以通过一下链接去学习一波。</strong></p>
+
+<p><strong><a href="https://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000" rel="noopener" data-token="0d63e5f4afc5feb3de9582da170fe717" target="_blank">https://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000</a></strong></p>
+                                    </div>
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/09/30/堆，栈，方法区，常量池，的理解/" class="archive-article-date">
-  	<time datetime="2019-09-30T07:42:11.431Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-30</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/09/30/堆，栈，方法区，常量池，的理解/">堆，栈，方法区，常量池，的理解</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">java基础</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Git</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/03/21/关于Git的代码总结，以及附上详细的Git学习教程链接/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/07/09/彻底理解快速排序——图文解释/" class="archive-article-date">
-  	<time datetime="2019-07-09T13:42:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-09</time>
-</a>
+<nav id="article-nav">
+  
+    <a href="/2019/03/27/==和equals的总结，防止遗忘/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          ==和equals的总结，防止遗忘
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/03/13/关于自我的一篇总结文章，也是第一篇学写博客的文章/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">关于自我的一篇总结文章</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/07/09/彻底理解快速排序——图文解释/">彻底理解快速排序——图文解释</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">排序</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/04/19/数据库的表的设计规范，以及数据库范式的概念/" class="archive-article-date">
-  	<time datetime="2019-04-19T13:04:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-19</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/04/19/数据库的表的设计规范，以及数据库范式的概念/">数据库的表的设计规范，以及数据库范式的概念</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">数据库</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/04/10/最详细的更改C盘目录下用户文件夹名称，为了能使用IDEA，研究了一个晚上/" class="archive-article-date">
-  	<time datetime="2019-04-09T16:32:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-10</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/04/10/最详细的更改C盘目录下用户文件夹名称，为了能使用IDEA，研究了一个晚上/">最详细的更改C盘目录下用户文件夹名称，为了能使用IDEA，研究了一个晚上</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">IDEA</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/03/27/==和equals的总结，防止遗忘/" class="archive-article-date">
-  	<time datetime="2019-03-27T06:54:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-27</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/03/27/==和equals的总结，防止遗忘/">==和equals的总结，防止遗忘</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">String</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">基础</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/archives/2019/page/2/">2</a><a class="extend next" rel="next" href="/archives/2019/page/2/">Next &raquo;</a>
-    </nav>
   
 
 
@@ -385,8 +422,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: ,

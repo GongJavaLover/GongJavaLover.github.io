@@ -6,18 +6,25 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2019 | 小小心大大梦</title>
+  <title>数据库的表的设计规范，以及数据库范式的概念 | 小小心大大梦</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="做自己喜欢的事，完成未实现的梦">
-<meta property="og:type" content="website">
-<meta property="og:title" content="小小心大大梦">
-<meta property="og:url" content="http://yoursite.com/archives/2019/index.html">
+  <meta name="description" content="范式中涉及的概念问题：  &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;① 部分函数依赖：设X,Y是关系R的两个属性集合，存在X→Y，若X’是X的真子集，存在X’→Y，则称Y部分函数依赖于X。  &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; 简单说：A——&amp;gt;">
+<meta name="keywords" content="数据库">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数据库的表的设计规范，以及数据库范式的概念">
+<meta property="og:url" content="http://yoursite.com/2019/04/19/数据库的表的设计规范，以及数据库范式的概念/index.html">
 <meta property="og:site_name" content="小小心大大梦">
-<meta property="og:description" content="做自己喜欢的事，完成未实现的梦">
+<meta property="og:description" content="范式中涉及的概念问题：  &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;① 部分函数依赖：设X,Y是关系R的两个属性集合，存在X→Y，若X’是X的真子集，存在X’→Y，则称Y部分函数依赖于X。  &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; 简单说：A——&amp;gt;">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190419205442316.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190419205609828.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190419205809500.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190419210108598.png">
+<meta property="og:updated_time" content="2019-10-02T02:44:02.006Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="小小心大大梦">
-<meta name="twitter:description" content="做自己喜欢的事，完成未实现的梦">
+<meta name="twitter:title" content="数据库的表的设计规范，以及数据库范式的概念">
+<meta name="twitter:description" content="范式中涉及的概念问题：  &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;① 部分函数依赖：设X,Y是关系R的两个属性集合，存在X→Y，若X’是X的真子集，存在X’→Y，则称Y部分函数依赖于X。  &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; 简单说：A——&amp;gt;">
+<meta name="twitter:image" content="https://img-blog.csdnimg.cn/20190419205442316.png">
   
     <link rel="alternative" href="/atom.xml" title="小小心大大梦" type="application/atom+xml">
   
@@ -145,116 +152,107 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-数据库的表的设计规范，以及数据库范式的概念" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/09/30/堆，栈，方法区，常量池，的理解/" class="archive-article-date">
-  	<time datetime="2019-09-30T07:42:11.431Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-30</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/09/30/堆，栈，方法区，常量池，的理解/">堆，栈，方法区，常量池，的理解</a>
+    <h1 class="article-title" itemprop="name">
+      数据库的表的设计规范，以及数据库范式的概念
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">java基础</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/07/09/彻底理解快速排序——图文解释/" class="archive-article-date">
-  	<time datetime="2019-07-09T13:42:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-09</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/07/09/彻底理解快速排序——图文解释/">彻底理解快速排序——图文解释</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">排序</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/04/19/数据库的表的设计规范，以及数据库范式的概念/" class="archive-article-date">
+        
+        <a href="/2019/04/19/数据库的表的设计规范，以及数据库范式的概念/" class="archive-article-date">
   	<time datetime="2019-04-19T13:04:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-19</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/04/19/数据库的表的设计规范，以及数据库范式的概念/">数据库的表的设计规范，以及数据库范式的概念</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <div class="htmledit_views" id="content_views">
+                                            <h3><a name="t0"></a>范式中涉及的概念问题：</h3>
 
-        <div class="article-info info-on-right">
-          
+<p>&nbsp; &nbsp; &nbsp; &nbsp; <strong>&nbsp;①</strong> 部分函数依赖：设X,Y是关系R的两个属性集合，存在X→Y，若X’是X的真子集，存在X’→Y，则称Y部分函数依赖于X。</p>
+
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <strong><span style="color:#f33b45;">简单说：</span></strong>A——&gt;（推出）B,如果A是一个属性组的话，则B属性只需要依赖A属性组中的某些属性就可以推出B，就是说B部分依赖于A</p>
+
+<p><strong>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<em> 例子：</em></strong>学生信息表中有（学号，课程名称，姓名），学号可以推出，但是课程名称不能推出姓名，也就是说姓名部分依赖于（学号，课程名称）</p>
+<a id="more"></a>
+<p>&nbsp;</p>
+
+<p><strong>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;②完全函数依赖：</strong>设X,Y是关系R的两个属性集合，X’是X的真子集，存在X→Y，但对每一个X’都有X’!→Y，则称Y完全函数依赖于X</p>
+
+<p><strong>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color:#f33b45;"> 简单说：</span></strong>A——&gt;B，如果A是一个属性组的话，则B必须依赖A属性组中的所有属性才可以推出B，就是说B完全依赖于A。</p>
+
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <strong><em>例子：</em></strong>学生表中有（学号，课程名称，分数），单一的学号并不能推出分数，单一的课程名称也不能推出分数，只有学号和&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 课程名称一起才能推出分数，所以说分数完全依赖于（学号，课程名称）</p>
+
+<p>&nbsp;</p>
+
+<p><strong>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;③传递函数依赖：</strong>设X,Y,Z是关系R中互不相同的属性集合，存在X→Y(Y !→X),Y→Z，则称Z传递函数依赖于X</p>
+
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<strong><span style="color:#f33b45;">简单说：</span></strong>A——&gt;B,B——&gt;C，如果A属性组可以确定唯一B属性的值，B属性组可以确定唯一C属性的值，则说C传递依赖于A</p>
+
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<em><strong>&nbsp;例子：</strong></em>学生表中有（学号，系主任，系名），学号可以推出系主任，系主任可以推出系名，所以说系名传递依赖于学号</p>
+
+<p>&nbsp;</p>
+
+<h3><a name="t1"></a><span style="color:#f33b45;"><strong>范式以及表的设计规范：</strong></span></h3>
+
+<p><span style="color:#3399ea;">一范式：表中属性都是单一属性，不可再分</span></p>
+
+<p>下图就是不满足一范式的表</p>
+
+<p><img alt class="has" height="113" src="https://img-blog.csdnimg.cn/20190419205442316.png" width="550"></p>
+
+<p>应该改为如下图所示：</p>
+
+<p><img alt class="has" height="127" src="https://img-blog.csdnimg.cn/20190419205609828.png" width="541"></p>
+
+<p><span style="color:#3399ea;">二范式：在一范式的基础上，消除部分函数依赖</span></p>
+
+<p><img alt class="has" height="121" src="https://img-blog.csdnimg.cn/20190419205809500.png" width="626"></p>
+
+<p><span style="color:#3399ea;">三范式：在一二范式的基础上，消除传递函数依赖</span></p>
+
+<p><span style="color:#3399ea;"><img alt class="has" height="120" src="https://img-blog.csdnimg.cn/20190419210108598.png" width="593"></span></p>
+
+<p>为什么需要满足范式：</p>
+
+<p>不满足范式会出现数据冗余、数据插入异常、数据删除异常以及更新异常等问题</p>
+
+<p><strong>表的设计基本上满足第三范式就足够了</strong></p>
+                                    </div>
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -266,102 +264,114 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/04/19/数据库的表的设计规范，以及数据库范式的概念/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/04/10/最详细的更改C盘目录下用户文件夹名称，为了能使用IDEA，研究了一个晚上/" class="archive-article-date">
-  	<time datetime="2019-04-09T16:32:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-10</time>
-</a>
+<nav id="article-nav">
+  
+    <a href="/2019/07/09/彻底理解快速排序——图文解释/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          彻底理解快速排序——图文解释
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/04/10/最详细的更改C盘目录下用户文件夹名称，为了能使用IDEA，研究了一个晚上/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">最详细的更改C盘目录下用户文件夹名称，为了能使用IDEA，研究了一个晚上</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/04/10/最详细的更改C盘目录下用户文件夹名称，为了能使用IDEA，研究了一个晚上/">最详细的更改C盘目录下用户文件夹名称，为了能使用IDEA，研究了一个晚上</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">IDEA</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/03/27/==和equals的总结，防止遗忘/" class="archive-article-date">
-  	<time datetime="2019-03-27T06:54:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-27</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/03/27/==和equals的总结，防止遗忘/">==和equals的总结，防止遗忘</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">String</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">基础</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
   
 
-    
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/archives/2019/page/2/">2</a><a class="extend next" rel="next" href="/archives/2019/page/2/">Next &raquo;</a>
-    </nav>
   
 
 
@@ -385,8 +395,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: ,

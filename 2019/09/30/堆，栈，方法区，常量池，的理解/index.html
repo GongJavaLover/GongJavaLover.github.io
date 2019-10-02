@@ -8,13 +8,13 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>堆，栈，方法区，常量池，的理解 | 小小心大大梦</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="堆，栈，方法区，常量池，的概念      1.首先看堆，栈，方法区，常量池 的位置分布图  2、内存区域类型 1.寄存器：最快的存储区, 由编译器根据需求进行分配,我们在程序中无法控制； 2. 堆：存放所有new出来的对象； 3. 栈：存放基本类型的变量数据和对象的引用，但对象本身不存放在栈中，而是存放在堆（new 出来的对象）或者常量池中(对象可能在常量池里)（字符">
+  <meta name="description" content="堆，栈，方法区，常量池，的概念      1.首先看堆，栈，方法区，常量池 的位置分布图">
 <meta name="keywords" content="java基础">
 <meta property="og:type" content="article">
 <meta property="og:title" content="堆，栈，方法区，常量池，的理解">
 <meta property="og:url" content="http://yoursite.com/2019/09/30/堆，栈，方法区，常量池，的理解/index.html">
 <meta property="og:site_name" content="小小心大大梦">
-<meta property="og:description" content="堆，栈，方法区，常量池，的概念      1.首先看堆，栈，方法区，常量池 的位置分布图  2、内存区域类型 1.寄存器：最快的存储区, 由编译器根据需求进行分配,我们在程序中无法控制； 2. 堆：存放所有new出来的对象； 3. 栈：存放基本类型的变量数据和对象的引用，但对象本身不存放在栈中，而是存放在堆（new 出来的对象）或者常量池中(对象可能在常量池里)（字符">
+<meta property="og:description" content="堆，栈，方法区，常量池，的概念      1.首先看堆，栈，方法区，常量池 的位置分布图">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://img2018.cnblogs.com/blog/1460902/201902/1460902-20190213164222485-2067634141.png">
 <meta property="og:image" content="https://img2018.cnblogs.com/blog/1460902/201902/1460902-20190213164330688-1158477748.png">
@@ -42,10 +42,10 @@
 <meta property="og:image" content="http://common.cnblogs.com/images/copycode.gif">
 <meta property="og:image" content="https://images2015.cnblogs.com/blog/922762/201607/922762-20160710173557592-60719081.jpg">
 <meta property="og:image" content="https://images2015.cnblogs.com/blog/922762/201607/922762-20160710173622499-1944068837.png">
-<meta property="og:updated_time" content="2019-10-02T02:56:22.443Z">
+<meta property="og:updated_time" content="2019-10-02T03:13:30.754Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="堆，栈，方法区，常量池，的理解">
-<meta name="twitter:description" content="堆，栈，方法区，常量池，的概念      1.首先看堆，栈，方法区，常量池 的位置分布图  2、内存区域类型 1.寄存器：最快的存储区, 由编译器根据需求进行分配,我们在程序中无法控制； 2. 堆：存放所有new出来的对象； 3. 栈：存放基本类型的变量数据和对象的引用，但对象本身不存放在栈中，而是存放在堆（new 出来的对象）或者常量池中(对象可能在常量池里)（字符">
+<meta name="twitter:description" content="堆，栈，方法区，常量池，的概念      1.首先看堆，栈，方法区，常量池 的位置分布图">
 <meta name="twitter:image" content="https://img2018.cnblogs.com/blog/1460902/201902/1460902-20190213164222485-2067634141.png">
   
     <link rel="alternative" href="/atom.xml" title="小小心大大梦" type="application/atom+xml">
@@ -201,11 +201,11 @@
 <div id="cnblogs_post_body" class="blogpost-body ">
     <p>1.首先看堆，栈，方法区，常量池 的位置分布图</p>
 <p><img src="https://img2018.cnblogs.com/blog/1460902/201902/1460902-20190213164222485-2067634141.png" alt width="814" height="380"></p>
+<a id="more"></a>
 <p>2、内存区域类型</p>
 <p>1.寄存器：最快的存储区, 由编译器根据需求进行分配,我们在程序中无法控制；</p>
 <p>2. 堆：存放所有new出来的对象；</p>
 <p>3. 栈：存放基本类型的变量数据和对象的引用，但对象本身不存放在栈中，而是存放在堆（new 出来的对象）或者常量池中(对象可能在常量池里)（字符串常量对象存放在常量池中。）；</p>
-<a id="more"></a>
 <p>4. 静态域：存放静态成员（static定义的）；</p>
 <p>5. 常量池：存放字符串常量和基本类型常量（public static final）。有时，在嵌入式系统中，常量本身会和其他部分分割离开(由于版权等其他原因)，所以在这种情况下，可以选择将其放在ROM中 ；</p>
 <p>6. 非RAM存储：硬盘等永久存储空间</p>
@@ -593,11 +593,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">IDEA</a>
+                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
+                <a href="javascript:void(0)" class="js-tag color5">IDEA</a>
               </li>
              
               <li class="article-tag-list-item">
